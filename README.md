@@ -4,7 +4,7 @@ Data Structure Template Library (DSTLib for us brazilians funny bois) is a colle
 developed in C containing all the important Abstract Structures, eg:
 
 - Simply Linked List
-- Double Linked List
+- Doubly Linked List
 - Stack
 - Queue
 - Priority Queue
