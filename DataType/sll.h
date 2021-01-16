@@ -8,21 +8,141 @@
 
 typedef struct list List;
 
-List* create_list();
 
-void show_list(List* list);
+/*
+ * Allocate the memory space for one list
+ * ande initializes its values.
+ *
+ * @param NULL.
+ * @return Empty List*.
+ */
+List* create_list(); //Done && tested 
 
-int push_front(List* list, int value);
-int push_back(List* list, int value);
 
-int pop_front(List* list);
-int pop_back(List* list);
+/*
+ * Print list nodes.
+ *
+ * @param List*.
+ * @return NULL.
+ */
+void show_list(List* list); //Done && tested
 
-int find(List* list, int value);
-int empty(List* list);
-int delete_list(List* list);
 
-List* concatenate(List* l1, List* l2);
-List* shuffle(List* list);
+/*
+ * Insert a new node as the first one and
+ * returns whether the operations succeeded.
+ *
+ * @param List*, value to be inserted.
+ * @return true of false.
+ */
+int push_front(List* list, int value); //Done && tested 
+
+
+/*
+ * Insert a new node as the last one and
+ * returns whether the operations succeeded.
+ * 
+ * @param List*, value to be inserted.
+ * @return true of false.
+ */
+int push_back(List* list, int value); //Done && tested
+
+
+/*
+ * Erases the first node on a list and
+ * returns whether the operations succeeded.
+ *
+ * @param List*.
+ * @return true of false.
+ */
+int pop_front(List* list); //Done && tested
+
+
+/*
+ * Erases the last node on a list and
+ * returns whether the operations succeeded.
+ *
+ * @param List*.
+ * @return true of false.
+ */
+int pop_back(List* list); //Done && tested
+
+
+/*
+ * Find a value within a list and return all
+ * nodes containing it.
+ *
+ * @param List*, value to be found.
+ * @return Empty List*.
+ */
+List* find(List* list, int value); //Done && tested
+
+
+/*
+ * Returns whether the list is empty or not.
+ *
+ * @param List*.
+ * @return true or false.
+ */
+int empty(List* list); //Done && tested
+
+
+/*
+ * Returns the size of a given list.
+ *
+ * @param List*.
+ * @return Size of the list.
+ */
+int size(List* list); //Done && tested
+
+
+/*
+ * Erase a node of a given list and
+ * returns whether the operation succeeded.
+ *
+ * @param List*.
+ * @return true or false.
+ */
+int erase(List* list); //TBD
+
+
+/*
+ * Erase all the nodes of a list and
+ * returns whether the operation succeeded.
+ *
+ * @param List*.
+ * @return true or false.
+ */
+int clear(List* list); //TBD
+
+
+/*
+ * Concatenates a second list on the back of
+ * the first list, and returns a new one.
+ *
+ * @param List* 1, List* 2.
+ * @return New concatenated List*.
+ */
+List* concatenate(List* l1, List* l2); //TBD
+
+
+/*
+ * Shuffles a given list and returns it.
+ *
+ * @param List*.
+ * @return New shuffled List*.
+ */
+List* shuffle(List* list); //TBD
+
+//advance -> advances a pointer n times
+//unique -> deletes duplicated value
+//reverse -> inverts list
+//insert -> insert element, qtd of copies
+//swap -> swaps two iterators or values
+//front -> access first node
+//back -> access last node
+
+//begin -> returns first iterator
+//end -> returns last iterator
 
 #endif //!_SLL_H
