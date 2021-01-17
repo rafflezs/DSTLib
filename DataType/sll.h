@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 typedef struct list List;
-
+typedef struct node Node;
 
 /*
  * Allocate the memory space for one list
@@ -16,7 +16,7 @@ typedef struct list List;
  * @param NULL.
  * @return Empty List*.
  */
-List* create_list(); //Done && tested 
+List* create_list(); // Done && tested 
 
 
 /*
@@ -25,7 +25,7 @@ List* create_list(); //Done && tested
  * @param List*.
  * @return NULL.
  */
-void show_list(List* list); //Done && tested
+void show_list(List* list); // Done && tested
 
 
 /*
@@ -35,7 +35,7 @@ void show_list(List* list); //Done && tested
  * @param List*, value to be inserted.
  * @return true of false.
  */
-int push_front(List* list, int value); //Done && tested 
+int push_front(List* list, int value); // Done && tested 
 
 
 /*
@@ -45,7 +45,7 @@ int push_front(List* list, int value); //Done && tested
  * @param List*, value to be inserted.
  * @return true of false.
  */
-int push_back(List* list, int value); //Done && tested
+int push_back(List* list, int value); // Done && tested
 
 
 /*
@@ -55,7 +55,7 @@ int push_back(List* list, int value); //Done && tested
  * @param List*.
  * @return true of false.
  */
-int pop_front(List* list); //Done && tested
+int pop_front(List* list); // Done && tested
 
 
 /*
@@ -65,7 +65,7 @@ int pop_front(List* list); //Done && tested
  * @param List*.
  * @return true of false.
  */
-int pop_back(List* list); //Done && tested
+int pop_back(List* list); // Done && tested
 
 
 /*
@@ -75,7 +75,7 @@ int pop_back(List* list); //Done && tested
  * @param List*, value to be found.
  * @return Empty List*.
  */
-List* find(List* list, int value); //Done && tested
+List* find(List* list, int value); // Done && tested
 
 
 /*
@@ -84,7 +84,7 @@ List* find(List* list, int value); //Done && tested
  * @param List*.
  * @return true or false.
  */
-int empty(List* list); //Done && tested
+int empty(List* list); // Done && tested
 
 
 /*
@@ -93,17 +93,27 @@ int empty(List* list); //Done && tested
  * @param List*.
  * @return Size of the list.
  */
-int size(List* list); //Done && tested
+int size(List* list); // Done && tested
 
 
 /*
  * Erase a node of a given list and
  * returns whether the operation succeeded.
  *
- * @param List*.
+ * @param List*, Node* address.
  * @return true or false.
  */
-int erase(List* list); //TBD
+int erase_node(List* list, Node* n); // Done && tested
+
+
+/*
+ * Erase a node of a certain index
+ * returns whether the operation succeeded.
+ *
+ * @param List*, index.
+ * @return true or false.
+ */
+int erase_index(List* list, int index); // Done && tested
 
 
 /*
@@ -113,7 +123,7 @@ int erase(List* list); //TBD
  * @param List*.
  * @return true or false.
  */
-int clear(List* list); //TBD
+int clear(List* list); // Done && tested
 
 
 /*
@@ -134,7 +144,15 @@ List* concatenate(List* l1, List* l2); //TBD
  */
 List* shuffle(List* list); //TBD
 
-//advance -> advances a pointer n times
+
+/*
+ * Advances a list n times and returns the node.
+ *
+ * @param List*, n advances.
+ * @return Node*.
+ */
+Node* advance(List* list, int n); // Done && tested
+
 //unique -> deletes duplicated value
 //reverse -> inverts list
 //insert -> insert element, qtd of copies
@@ -144,5 +162,7 @@ List* shuffle(List* list); //TBD
 
 //begin -> returns first iterator
 //end -> returns last iterator
+
+void printa(Node* n); // Done && tested
 
 #endif //!_SLL_H
