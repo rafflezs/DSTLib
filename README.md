@@ -1,7 +1,7 @@
 
-# :mortar_board: About this
+# :speech_balloon: About this
 Data Structure Template Library (DSTLib for us brazilians funny bois) is a collection of headers and libraries
-developed in C containing all the important Abstract Data Types, eg:
+developed in C containing all the important Abstract Data Types and its operations, eg:
 
 - [List](#Lists)
     - Simply linked
@@ -9,14 +9,13 @@ developed in C containing all the important Abstract Data Types, eg:
     - Circular
 - [Stack](#Stack)
 - [Queue](#Queue)
-- [Priority Queue](#Priority-Queue)
+    - Priority Queue
 
-# Data Types Implemented
+# :dart: Data Type Expected Operations (and kinda how it works)
 
 ## Lists
 
 Operations:
-
 
 - get() – Return an element from the list at any given position.
 - insert() – Insert an element at any position of the list.
@@ -30,7 +29,6 @@ Operations:
 
 Operations:
 
-
 - push() – Insert an element at one end of the stack called top.
 - pop() – Remove and return the element at the top of the stack, if it is not empty.
 - peek() – Return the element at the top of the stack without removing it, if the stack is- not empty.
@@ -41,7 +39,6 @@ Operations:
 
 Operations:
 
-
 - enqueue() – Insert an element at the end of the queue.
 - dequeue() – Remove and return the first element of the queue, if the queue is not empty.
 - peek() – Return the element of the queue without removing it, if the queue is not empty.
@@ -49,13 +46,13 @@ Operations:
 - empty() – Return true if the queue is empty, otherwise return false.
 
 
-# :computer: Technologies
+# :computer: References and Technologies
 [Raw C/C++] (https://www.cplusplus.com/) - this is a raw application for learning purposes, so I limited myself
 to use only the language itself and what it conveys in its STL form.
 
-# Disclaimer
+# :heavy_exclamation_mark: Disclaimer
 This is a test application. I do not responsabilize for any damage or harm caused by the use of this Library in
 your projects.
 
-# Acknowledgment
+# :mortar_board: Acknowledgment
 [Manuel|Beta4rrio](https://github.com/Bet4Arrio "Code Reviewer") He had the idea first, I just pick the better name.
