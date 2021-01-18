@@ -20,6 +20,23 @@ List* create_list(); // Done && tested
 
 
 /*
+ * Returns the first node of a list.
+ *
+ * @param List*.
+ * @return Header node.
+ */
+Node* begin(List* l1);
+
+
+/*
+ * Return the last node of a list.
+ *
+ * @param List*.
+ * @return Footer node.
+ */
+Node* end(List* l1);
+
+/*
  * Print list nodes.
  *
  * @param List*.

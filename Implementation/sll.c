@@ -6,7 +6,7 @@ struct node{
 };
 
 struct list{
-    Node* header;
+    Node* front;
     Node* last;
 };
 
@@ -14,18 +14,30 @@ List* create_list(){
 
     List* list = (List*) malloc( sizeof(List) );
 
-    list->header = NULL;
+    list->front = NULL;
 
     return list;
 
 }
 
+Node* begin(List* l1){
+
+    return l1->front;
+
+};
+
+Node* end(List* l1){
+
+    return l1->last;
+
+};
+
 void show_list(List* list){
 
-    Node* temp = list->header;
+    Node* temp = list->front;
     int cont = 1;
 
-    if(list->header == NULL){
+    if(list->front == NULL){
         printf("Empty list\n");
         return;
     }
@@ -57,9 +69,17 @@ int push_front(List* list, int value){
         return 0;
     }
 
+    temp->next = NULL;
     temp->value = value;
-    temp->next = list->header;
-    list->header = temp;
+
+    if(list->front == NULL){
+        list->front = temp;
+        list->last = temp;
+    }else{
+        temp->next = list->front;
+        list->front = temp;
+    }
+
 
     return 1;
 
@@ -67,7 +87,7 @@ int push_front(List* list, int value){
 
 int pop_front(List* list){
 
-    if(list->header == NULL){
+    if(list->front == NULL){
 
         return 0;
 
@@ -75,8 +95,8 @@ int pop_front(List* list){
 
         Node* temp = (Node*) malloc( sizeof(Node));
 
-        temp = list->header;
-        list->header = list->header->next;
+        temp = list->front;
+        list->front = list->front->next;
 
         free(temp);
 
@@ -98,21 +118,21 @@ int push_back(List* list, int value){
         return 0;
     }
 
-    if(list->header == NULL){
+    temp->value = value;
+    temp->next = NULL;
 
-        temp->value = value;
-        temp->next = NULL;
-        list->header = temp;
+    if(list->front == NULL){
+
+        list->front = temp;
+        list->last = temp;
 
     }else{
         
         Node* it = (Node*) malloc( sizeof(Node));
 
-        for(it = list->header; it->next != NULL; it = it->next);
-
-        temp->value = value;
-        temp->next = NULL;
+        for(it = list->front; it->next != NULL; it = it->next);
         it->next = temp;
+        list->last = temp;
     }
     
     return 1;
@@ -120,7 +140,7 @@ int push_back(List* list, int value){
 
 int pop_back(List* list){
 
-    if(list->header == NULL){
+    if(list->front == NULL){
 
         return 0;
 
@@ -129,10 +149,11 @@ int pop_back(List* list){
         Node* temp = (Node*) malloc( sizeof(Node));
         Node* it = (Node*) malloc( sizeof(Node));
 
-        for(it = list->header; it->next != NULL; it = it->next);
+        for(it = list->front; it->next->next != NULL; it = it->next);
 
-        temp = it;
+        temp = it->next;
         it->next = NULL;
+        list->last = it;
         free(temp);
 
     }
@@ -147,21 +168,21 @@ int pop_back(List* list){
         return NULL;
     }
 
-    if(list->header == NULL){
+    if(list->front == NULL){
         return NULL;
     }
 
     List* foundValues = (List*) malloc (sizeof (List));
     Node* temp = (Node*) malloc( sizeof(Node));
 
-    for(Node* it = list->header; it->next != NULL; it = it->next){
+    for(Node* it = list->front; it->next != NULL; it = it->next){
         if(it->value == value){
             temp = it;
             temp = temp->next;
         }
     }
 
-    foundValues->header = temp;
+    foundValues->front = temp;
 
     return foundValues;
 
@@ -169,7 +190,7 @@ int pop_back(List* list){
 
 int empty(List* list){
 
-    if(list->header == NULL){
+    if(list->front == NULL){
         return 1;
     }
 
@@ -184,12 +205,12 @@ int size(List* list){
         return size;
     }
 
-    if(list->header == NULL){
+    if(list->front == NULL){
         return size;
     }
 
     Node* temp = (Node*) malloc( sizeof(Node) );
-    for(temp = list->header; temp->next != NULL; temp = temp->next, size++);
+    for(temp = list->front; temp->next != NULL; temp = temp->next, size++);
 
     return size;
 
@@ -201,13 +222,13 @@ int erase_node(List* list, Node* n){
         return 0;
     }
 
-    if(list->header == NULL){
+    if(list->front == NULL){
         return 0;
     }
 
     Node* it = (Node*) malloc( sizeof(Node) );
 
-    for(it = list->header; it->next != NULL; it = it->next){
+    for(it = list->front; it->next != NULL; it = it->next){
         if(it->next == n){
             break;
         }
@@ -230,18 +251,18 @@ int erase_index(List* list, int index){
         return 0;
     }
 
-    if(list->header == NULL){
+    if(list->front == NULL){
         return 0;
     }
 
     Node* it = (Node*) malloc( sizeof(Node) );
-    it = list->header;
+    it = list->front;
     int i = 1;
 
     if(index == 1){
 
-        it = list->header;
-        list->header = list->header->next;        
+        it = list->front;
+        list->front = list->front->next;        
         free(it);
     
         return 1;
@@ -269,7 +290,7 @@ int clear(List* list){
         return 0;
     }
 
-    if(list->header == NULL){
+    if(list->front == NULL){
         return 0;
     }
 
@@ -277,10 +298,10 @@ int clear(List* list){
 
     do
     {
-        temp = list->header;
-        list->header = list->header->next;
+        temp = list->front;
+        list->front = list->front->next;
         free(temp);
-    } while (list->header != NULL);
+    } while (list->front != NULL);
 
     return 1;
 
@@ -292,17 +313,56 @@ Node* advance(List* list, int n){
         return NULL;
     }
 
-    if(list->header == NULL){
+    if(list->front == NULL){
         return NULL;
     }
 
     Node* it = (Node*) malloc( sizeof(Node) );
 
-    it = list->header;
+    it = list->front;
 
     for(int i = 0; i < n && it->next != NULL; i++, it = it->next);
 
     return it;
+
+}
+
+List* concatenate(List* l1, List* l2){
+
+    if(l1 == NULL || l2 == NULL){
+        return NULL;
+    }
+
+    List* concatList = (List*) malloc( sizeof(List) );
+
+    if(concatList == NULL){
+        return NULL;
+    }
+
+    if(l1->front == NULL){
+        concatList = l2;
+        return concatList;
+    }
+    if(l2->front == NULL){
+        concatList = l1;
+        return concatList;
+    }
+
+    concatList->front = l1->front;
+
+    Node* lastNode = (Node*) malloc( sizeof(Node) );
+    
+    if(lastNode == NULL){
+        return NULL;
+    }
+
+    lastNode = concatList->front;
+
+    for(; lastNode->next != NULL; lastNode = lastNode->next);
+
+    lastNode->next = l2->front;
+
+    return concatList;
 
 }
 
