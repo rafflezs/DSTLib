@@ -1,4 +1,4 @@
-#include "../DataType/sll.h"
+#include "../DataType/simply.h"
 
 struct node{
     int value;
@@ -57,7 +57,7 @@ void show_list(List* list){
 
 }
 
-int push_front(List* list, int value){
+int insert_front(List* list, int value){
 
     if(list == NULL){
         return 0;
@@ -85,7 +85,7 @@ int push_front(List* list, int value){
 
 }
 
-int pop_front(List* list){
+int remove_front(List* list){
 
     if(list->front == NULL){
 
@@ -106,7 +106,7 @@ int pop_front(List* list){
 
 }
 
-int push_back(List* list, int value){
+int insert_back(List* list, int value){
 
     if(list == NULL){
         return 0;
@@ -138,7 +138,7 @@ int push_back(List* list, int value){
     return 1;
 }
 
-int pop_back(List* list){
+int remove_back(List* list){
 
     if(list->front == NULL){
 

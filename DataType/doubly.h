@@ -52,7 +52,7 @@ void show_list(List* list); // Done && tested
  * @param List*, value to be inserted.
  * @return true of false.
  */
-int push_front(List* list, int value); // Done && tested 
+int insert_front(List* list, int value); // Done && tested 
 
 
 /*
@@ -62,7 +62,7 @@ int push_front(List* list, int value); // Done && tested
  * @param List*, value to be inserted.
  * @return true of false.
  */
-int push_back(List* list, int value); // Done && tested
+int insert_back(List* list, int value); // Done && tested
 
 
 /*
@@ -72,7 +72,7 @@ int push_back(List* list, int value); // Done && tested
  * @param List*.
  * @return true of false.
  */
-int pop_front(List* list); // Done && tested
+int remove_front(List* list); // Done && tested
 
 
 /*
@@ -82,7 +82,7 @@ int pop_front(List* list); // Done && tested
  * @param List*.
  * @return true of false.
  */
-int pop_back(List* list); // Done && tested
+int remove_back(List* list); // Done && tested
 
 
 /*

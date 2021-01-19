@@ -55,4 +55,4 @@ This is a test application. I do not responsabilize for any damage or harm cause
 your projects.
 
 # :mortar_board: Acknowledgment
-[Manuel|Beta4rrio](https://github.com/Bet4Arrio "Code Reviewer") He had the idea first, I just pick the better name.
+[Manuel|Beta4rrio](https://github.com/Bet4Arrio "Code Reviewer") He had the idea first, I just picked the better name.

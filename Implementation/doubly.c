@@ -1,4 +1,4 @@
-#include "../DataType/dll.h"
+#include "../DataType/doubly.h"
 
 struct node{
     int value;
@@ -58,7 +58,7 @@ void show_list(List* list){
 
 }
 
-int push_front(List* list, int value){
+int insert_front(List* list, int value){
 
     if(list == NULL){
         return 0;
@@ -70,6 +70,7 @@ int push_front(List* list, int value){
         return 0;
     }
 
+    temp->prev = NULL;
     temp->next = NULL;
     temp->value = value;
 
@@ -86,7 +87,7 @@ int push_front(List* list, int value){
 
 }
 
-int pop_front(List* list){
+int remove_front(List* list){
 
     if(list->front == NULL){
 
@@ -98,6 +99,7 @@ int pop_front(List* list){
 
         temp = list->front;
         list->front = list->front->next;
+        list->front->next->prev = NULL;
 
         free(temp);
 
@@ -107,7 +109,7 @@ int pop_front(List* list){
 
 }
 
-int push_back(List* list, int value){
+int insert_back(List* list, int value){
 
     if(list == NULL){
         return 0;
@@ -121,6 +123,7 @@ int push_back(List* list, int value){
 
     temp->value = value;
     temp->next = NULL;
+    temp->prev = NULL;
 
     if(list->front == NULL){
 
@@ -132,14 +135,14 @@ int push_back(List* list, int value){
         Node* it = (Node*) malloc( sizeof(Node));
 
         for(it = list->front; it->next != NULL; it = it->next);
+        temp->prev = it;
         it->next = temp;
-        list->last = temp;
     }
     
     return 1;
 }
 
-int pop_back(List* list){
+int remove_back(List* list){
 
     if(list->front == NULL){
 
@@ -369,6 +372,10 @@ List* concatenate(List* l1, List* l2){
 
 void printa(Node* n){
 
-    printf("[Value]: %i\n", n->value);
+    printf("[Previous node value]: %i\n", n->prev->value);
+
+    printf("[Current node value]: %i\n", n->value);
+
+    printf("[Next node value]: %i\n", n->next->value);
 
 }
