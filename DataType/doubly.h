@@ -1,7 +1,7 @@
 //Doubly linked-list
 
-#ifndef SLL_H
-#define SLL_H
+#ifndef DOUBLY_H
+#define DOUBLY_H
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -35,7 +35,7 @@ Node* end(List* l1){
 
 void show_list(List* list){
 
-    Node* temp = list->front;
+    Node* it = list->front;
     int cont = 1;
 
     if(list->front == NULL){
@@ -43,16 +43,11 @@ void show_list(List* list){
         return;
     }
 
-    do
-    {
+    printf("Node - [Value] | ");
 
-        printf("Node: %i - ", cont);
-        printf("Value: [%i] | ", temp->value);
-
-        cont++;
-        temp = temp->next;
-    
-    } while ( temp != NULL );
+    for(; it->next != list->front; it = it->next){
+        printf("%p - [%i] | ", it, it->value);
+    }
 
     printf("\n");
 

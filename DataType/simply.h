@@ -1,7 +1,7 @@
 //Simply linked list
 
-#ifndef SLL_H
-#define SLL_H
+#ifndef SIMPLY_H
+#define SIMPLY_H
 
 #include <stdio.h>
 #include <stdlib.h>
