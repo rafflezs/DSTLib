@@ -18,7 +18,7 @@ developed in C containing all the important Abstract Data Types and its operatio
 Operations:
 
 - get() – Return an element from the list at any given position.
-- insert() – Insert an element at any position of the list.
+- push() – Insert an element at any position of the list.
 - remove() – Remove the first occurrence of any element from a non-empty list.
 - removeAt() – Remove the element at a specified location from a non-empty list.
 - replace() – Replace an element at any position by another element.
@@ -45,6 +45,17 @@ Operations:
 - size() – Return the number of elements in the queue.
 - empty() – Return true if the queue is empty, otherwise return false.
 
+## To put some challenge:
+
+I've decided to implement some (usually asked) operations, like:
+
+- concatenate() - Joins two list end-to-end.
+- advance() - Advance _n_ times in a list returning the current node.
+- shuffle() - Shuffles a given list to a randomic order.
+- reverse() - (Is it called reverse or inverse?) Makes a list go backwards _*?*_.
+- unique() - Deletes repeated values.
+- insert() - (May appear with other name) Insert a value _n_ times.
+- swap() - Swaps two values (in order of appearence).
 
 # :computer: References and Technologies
 [Raw C/C++] (https://www.cplusplus.com/) - this is a raw application for learning purposes, so I limited myself

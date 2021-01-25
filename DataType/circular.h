@@ -50,7 +50,7 @@ void show_list(List* list); // Done && tested
  * @param List*, value to be inserted.
  * @return true of false.
  */
-int insert_front(List* list, int value); // Done && tested 
+int push_front(List* list, int value); // Done && tested 
 
 
 /*
@@ -60,7 +60,7 @@ int insert_front(List* list, int value); // Done && tested
  * @param List*, value to be inserted.
  * @return true of false.
  */
-int insert_back(List* list, int value); // Done && tested
+int push_back(List* list, int value); // Done && tested
 
 
 /*
@@ -84,13 +84,13 @@ int remove_back(List* list); // Done && tested
 
 
 /*
- * Find a value within a list and return all
- * nodes containing it.
+ * Returns the first appearence of a given
+ * number.
  *
  * @param List*, value to be found.
- * @return Empty List*.
+ * @return int node index != 0.
  */
-List* find(List* list, int value); // Done && tested
+int get(List* list, int value); // Done && tested
 
 
 /*
@@ -168,16 +168,46 @@ List* shuffle(List* list); //TBD
  */
 Node* advance(List* list, int n); // Done && tested
 
-//unique -> deletes duplicated value
-//reverse -> inverts list
-//insert -> insert element, qtd of copies
-//swap -> swaps two iterators or values
-//front -> access first node
-//back -> access last node
+/*
+* Replace the first occurence of a value
+* with another value.
+*
+* @param List*, value to replaced, replacing value
+* @return true or false.
+*/
+int replace(List* list, int value, int rep);
 
-//begin -> returns first iterator
-//end -> returns last iterator
+/*
+* Replace the all occurences of a value
+* with another value.
+*
+* @param List*, value to replaced, replacing value
+* @return true or false.
+*/
+int replace_all(List* list, int value, int rep);
 
+/*
+* Insert a value n times in a given position.
+*
+* @param List*, index position, value
+* @return true or false.
+*/
+int insert(List* list, int pos, int value, int n);
+
+/*
+* Swaps two values.
+*
+* @param List*, value 1, value 2
+* @return true or false.
+*/
+int swap(List* list, int v1, int v2);
+
+/*
+* Prints a node with address value and data value
+*
+* @param Node
+* @return NULL
+*/
 void printa(Node* n); // Done && tested
 
 #endif

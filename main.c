@@ -1,26 +1,23 @@
-#include "/home/rafflezs/Documentos/DSTLib/DataType/circular.h"
+#include "/home/rafflezs/Documentos/DSTLib/DataType/doubly.h"
 //#include "DataType/simply.h"
 
 int main(){
 
     List* a = create_list();
 
-    insert_back(a, 10);
-
-    printa(begin(a));
-
-    insert_front(a, 5);
-    insert_front(a, 1);
-    insert_back(a, 7);
-    insert_front(a, 16);
-    insert_back(a, 102);
-    insert_front(a, 2245);
-    insert_front(a, 9);
+    push_back(a ,1);
+    push_back(a ,2);
+    push_back(a ,3);
+    push_back(a ,4);
+    push_back(a ,5);
+    push_back(a ,6);
+    push_back(a ,3);
 
     show_list(a);
 
-    printa(begin(a));
-    printa(end(a));
+    insert(a, 2, 11, 4);
+
+    show_list(a);
 
     return 0;
 

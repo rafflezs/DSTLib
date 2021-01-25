@@ -32,10 +32,10 @@ Node* end(List* l1){
 
 };
 
+//New model - d&t
 void show_list(List* list){
 
     Node* it = list->front;
-    int cont = 1;
 
     if(list->front == NULL){
         printf("Empty list\n");
@@ -44,7 +44,7 @@ void show_list(List* list){
 
     printf("Node - [Value] | ");
 
-    for(; it->next != list->front; it = it->next){
+    for(; it != NULL; it = it->next){
         printf("%p - [%i] | ", it, it->value);
     }
 
@@ -52,7 +52,7 @@ void show_list(List* list){
 
 }
 
-int insert_front(List* list, int value){
+int push_front(List* list, int value){
 
     if(list == NULL){
         return 0;
@@ -101,7 +101,7 @@ int remove_front(List* list){
 
 }
 
-int insert_back(List* list, int value){
+int push_back(List* list, int value){
 
     if(list == NULL){
         return 0;
@@ -157,31 +157,26 @@ int remove_back(List* list){
 
 }
 
-/* List* find(List* list, int value){
+int get(List* list, int value){
 
     if(list == NULL){
-        return NULL;
+        return 0;
     }
 
     if(list->front == NULL){
-        return NULL;
+        return 0;
     }
 
-    List* foundValues = (List*) malloc (sizeof (List));
-    Node* temp = (Node*) malloc( sizeof(Node));
-
-    for(Node* it = list->front; it->next != NULL; it = it->next){
+    int cont = 1;
+    for(Node* it = list->front; it != NULL; it = it->next, cont++){
         if(it->value == value){
-            temp = it;
-            temp = temp->next;
+            return cont;
         }
     }
 
-    foundValues->front = temp;
+    return 0;
 
-    return foundValues;
-
-} */
+}
 
 int empty(List* list){
 
@@ -211,7 +206,7 @@ int size(List* list){
 
 }
 
-int erase_node(List* list, Node* n){
+int remove_value(List* list, int value){
 
     if(list == NULL){
         return 0;
@@ -221,26 +216,23 @@ int erase_node(List* list, Node* n){
         return 0;
     }
 
-    Node* it = (Node*) malloc( sizeof(Node) );
+    Node* it = list->front;
 
-    for(it = list->front; it->next != NULL; it = it->next){
-        if(it->next == n){
-            break;
+    for(; it != NULL; it = it->next){
+        if(it->next->value == value){
+            Node* temp = it->next;
+            it->next = temp->next;
+            free(temp);
+
+            return 1;
         }
-    }    
+    }
     
-    Node* temp = (Node*) malloc( sizeof(Node) );
-
-    temp = it->next;
-    it->next = temp->next;
-
-    free(temp);
-
-    return 1;
+    return 0;
 
 }
 
-int erase_index(List* list, int index){
+int remove_at(List* list, int index){
 
     if(list == NULL){
         return 0;
@@ -250,32 +242,29 @@ int erase_index(List* list, int index){
         return 0;
     }
 
-    Node* it = (Node*) malloc( sizeof(Node) );
-    it = list->front;
-    int i = 1;
+    Node* it = list->front;
+    int cont = 1;
 
     if(index == 1){
 
-        it = list->front;
-        list->front = list->front->next;        
-        free(it);
-    
+        remove_front(list);
         return 1;
-    }
+    
+    }else{
+        for(; it != NULL; it = it->next, cont++){
+            if(cont + 1 == index){
+    
+                Node* temp = it->next;
+                it->next = temp->next;
+                free(temp);
+    
+                return 1;
 
-    while(i < index && it->next != NULL){
-        it = it->next;
-        i++;
+            }
+        }
     }
     
-    Node* temp = (Node*) malloc( sizeof(Node) );
-
-    temp = it->next;
-    it->next = temp->next;
-
-    free(temp);
-    
-    return 1;
+    return 0;
 
 }
 
@@ -312,11 +301,9 @@ Node* advance(List* list, int n){
         return NULL;
     }
 
-    Node* it = (Node*) malloc( sizeof(Node) );
+    Node* it =  list->front;
 
-    it = list->front;
-
-    for(int i = 0; i < n && it->next != NULL; i++, it = it->next);
+    for(; n > 0 && it->next != NULL; n--, it = it->next);
 
     return it;
 
@@ -358,6 +345,117 @@ List* concatenate(List* l1, List* l2){
     lastNode->next = l2->front;
 
     return concatList;
+
+}
+
+int replace(List *list, int value, int rep){
+
+    if(list == NULL){
+        return 0;
+    }
+
+    if(list->front == NULL){
+        return 0;
+    }
+
+    for(Node* it = list->front; it != NULL; it = it->next){
+        if(it->value == value){
+            it->value = rep;
+            break;
+        }
+    }
+
+    return 1;
+
+}
+
+int replace_all(List *list, int value, int rep){
+
+    if(list == NULL){
+        return 0;
+    }
+
+    if(list->front == NULL){
+        return 0;
+    }
+
+    for(Node* it = list->front; it != NULL; it = it->next){
+        if(it->value == value){
+            it->value = rep;
+
+        }
+    }
+
+    return 1;
+
+}
+
+int insert(List* list, int pos, int value, int n){
+
+    if(list == NULL){
+        return 0;
+    }
+
+    if(list->front == NULL || pos == 1){
+
+        while(n > 0){
+            push_back(list, value);
+            n--;
+        }
+
+    }else if(pos == size(list)){
+
+        while(n > 0){
+            push_front(list, value);
+            n--;
+        }
+    
+    }else{
+
+        Node* temp = advance(list, pos-1);
+        List* l2 = create_list();
+
+        while(n > 0){
+            push_back(l2, value);
+            n--;
+        }
+
+        l2->last->next = temp->next;
+        temp->next = l2->front;
+
+    }
+
+    return 1;
+
+}
+
+int swap(List* list, int v1, int v2){
+
+    if(list == NULL){
+        return 0;
+    }
+    if(list->front == NULL){
+        return 0;
+    }
+
+    Node* n1;
+    Node* n2;
+
+    for(Node* it = list->front; it != NULL; it = it->next){
+
+        if(it->value == v1){
+            n1 = it;
+        }
+        if(it->value == v2){
+            n2 = it;
+        }
+
+    }
+
+    n1->value = v2;
+    n2->value = v1;
+
+    return 1;
 
 }
 
