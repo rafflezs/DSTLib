@@ -1,4 +1,4 @@
-#include "/home/rafflezs/Documentos/DSTLib/DataType/doubly.h"
+#include "/home/rafflezs/Documentos/DSTLib/DataType/List/doubly.h"
 //#include "DataType/simply.h"
 
 int main(){

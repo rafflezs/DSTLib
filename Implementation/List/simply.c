@@ -1,4 +1,4 @@
-#include "../DataType/simply.h"
+#include "../DataType/List/simply.h"
 
 struct node{
     int value;

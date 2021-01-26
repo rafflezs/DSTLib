@@ -1,4 +1,4 @@
-#include "../DataType/doubly.h"
+#include "../DataType/List/doubly.h"
 
 struct node{
     int value;

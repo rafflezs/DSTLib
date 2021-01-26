@@ -1,4 +1,4 @@
-#include "/home/rafflezs/Documentos/DSTLib/DataType/circular.h"
+#include "/home/rafflezs/Documentos/DSTLib/DataType/List/circular.h"
 
 struct list{
     Node* head; //In circular list, head and last are the same
