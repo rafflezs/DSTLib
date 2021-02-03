@@ -10,6 +10,9 @@ developed in C containing all the important Abstract Data Types and its operatio
 - [Stack](#Stack)
 - [Queue](#Queue)
     - Priority Queue
+- [Tree](#Tree) (New)
+    - Binary tree
+    - ...
 
 # :dart: Data Type Expected Operations (and kinda how it works)
 
@@ -44,6 +47,27 @@ Operations:
 - peek() – Return the element of the queue without removing it, if the queue is not empty.
 - size() – Return the number of elements in the queue.
 - empty() – Return true if the queue is empty, otherwise return false.
+
+## Tree
+
+Operations:
+
+- insert();
+- traverse();
+    - pre_order;
+    - in_order;
+    - post_order;
+- search();
+- size();
+- find
+    - biggest_element();
+    - smallest_element();
+- delete_node();
+    - any_node;
+    - biggest;
+    - smallest;
+- delete_tree();
+- show_leaf();
 
 ## To put some challenge:
 
