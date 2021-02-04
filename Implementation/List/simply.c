@@ -1,14 +1,4 @@
-#include "../DataType/List/simply.h"
-
-struct node{
-    int value;
-    struct node* next;
-};
-
-struct list{
-    Node* front;
-    Node* last;
-};
+#include "/home/rafflezs/Documentos/DSTLib/DataType/List/simply.h"
 
 List* create_list(){
 

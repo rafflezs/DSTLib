@@ -1,16 +1,5 @@
 #include "../DataType/List/doubly.h"
 
-struct node{
-    int value;
-    struct node* next;
-    struct node* prev;
-};
-
-struct list{
-    Node* front;
-    Node* last;
-};
-
 List* create_list(){
 
     List* list = (List*) malloc( sizeof(List) );

@@ -6,8 +6,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct queue Queue;
-typedef struct node Node;
+typedef struct queue
+{
+    Node* front;
+    Node* rear;
+}Queue;
+
+typedef struct node
+{
+    Node* next;
+    int value;
+}Node;
+
 
 Node* begin();
 

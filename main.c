@@ -1,23 +1,39 @@
-#include "/home/rafflezs/Documentos/DSTLib/DataType/List/doubly.h"
-//#include "DataType/simply.h"
+#include "/home/rafflezs/Documentos/DSTLib/DataType/Tree/binary.h"
+//#include "/home/rafflezs/Documentos/DSTLib/DataType/List/simply.h"
 
 int main(){
 
-    List* a = create_list();
+    struct node* r = create_tree();
 
-    push_back(a ,1);
-    push_back(a ,2);
-    push_back(a ,3);
-    push_back(a ,4);
-    push_back(a ,5);
-    push_back(a ,6);
-    push_back(a ,3);
+/*     List* a = create_list();
 
-    show_list(a);
-
-    insert(a, 2, 11, 4);
+    push_back(a, 10);
+    push_back(a, 20);
+    push_back(a, 30);
+    push_back(a, 40);
 
     show_list(a);
+
+    Node* temp = a->prox; */
+
+    insert(&r, 10);
+    insert(&r, 12);
+    insert(&r, 13);
+    insert(&r, 1);
+    insert(&r, 2);
+
+
+    printf("\nPre order\n");
+    in_order_print(&r);
+
+    struct node* ta = find_largest_element(&r);
+
+    printf("%i", ta->value);
+
+    remove_smallest_element(&r);
+
+    printf("\nPre order\n");
+    in_order_print(&r);
 
     return 0;
 

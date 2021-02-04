@@ -1,15 +1,5 @@
 #include "/home/rafflezs/Documentos/DSTLib/DataType/List/circular.h"
 
-struct list{
-    Node* head; //In circular list, head and last are the same
-    Node* last;
-};
-
-struct node{
-    int value;
-    Node* next;
-};
-
 List* create_list(){
 
     List* list = (List*) malloc( sizeof(List) );

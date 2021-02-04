@@ -1,18 +1,5 @@
 #include "../DataType/Queue/priority.h"
 
-struct queue
-{
-    Node* front;
-    Node* rear;
-};
-
-struct node
-{
-    Node* next;
-    int value;
-    int priority;
-};
-
 Node* begin(Queue* q){
     return q->front;
 }

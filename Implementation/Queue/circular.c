@@ -1,17 +1,5 @@
 #include "../DataType/Queue/circular.h"
 
-struct queue
-{
-    Node* front;
-    Node* rear;
-};
-
-struct node
-{
-    Node* next;
-    int value;
-};
-
 Node* begin(Queue* q){
     return q->front;
 }

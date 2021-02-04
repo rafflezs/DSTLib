@@ -4,8 +4,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct list List;
-typedef struct node Node;
+typedef struct list{
+    Node* head; //In circular list, head and last are the same
+    Node* last;
+}List;
+
+typedef struct node{
+    int value;
+    Node* next;
+}Node;
+
 
 /*
  * Allocate the memory space for one list

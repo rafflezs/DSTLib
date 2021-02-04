@@ -6,8 +6,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct list List;
-typedef struct node Node;
+typedef struct node{
+    int value;
+    struct node* next;
+    struct node* prev;
+}Node;
+
+typedef struct list{
+    Node* front;
+    Node* last;
+} List;
 
 /*
  * Allocate the memory space for one list
