@@ -7,13 +7,13 @@ developed in C containing all the important Abstract Data Types and its operatio
     - [X] Simply linked
     - [X] Doubly linked
     - [X] Circular
-- [] [Stack](#Stack)
-- [] [Queue](#Queue)
-    - [] Priority Queue
-- [] [Tree](#Tree) (New)
-    - [] Binary tree
-    - [] Red-Black Tree
-    - [] B-Tree
+- [ ] [Stack](#Stack)
+- [ ] [Queue](#Queue)
+    - [ ] Priority Queue
+- [ ] [Tree](#Tree) (New)
+    - [ ] Binary tree
+    - [ ] Red-Black Tree
+    - [ ] B-Tree
 
 # :dart: Data Type Expected Operations (and kinda how it works)
 
@@ -72,9 +72,9 @@ Operations:
 
 ### B-Tree
 
-- [] Traversal - inOrder();
-- [] insert
-    - [] SplitChild();
+- [ ] Traversal - inOrder();
+- [ ] insert
+    - [ ] SplitChild();
 
 ## To put some challenge:
 
