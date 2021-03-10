@@ -3,16 +3,17 @@
 Data Structure Template Library (DSTLib for us brazilians funny bois) is a collection of headers and libraries
 developed in C containing all the important Abstract Data Types and its operations, eg:
 
-- [List](#Lists)
-    - Simply linked
-    - Doubly linked
-    - Circular
-- [Stack](#Stack)
-- [Queue](#Queue)
-    - Priority Queue
-- [Tree](#Tree) (New)
-    - Binary tree
-    - ...
+[X] [List](#Lists)
+    [X] Simply linked
+    [X] Doubly linked
+    [X] Circular
+[] [Stack](#Stack)
+[] [Queue](#Queue)
+    [] Priority Queue
+[] [Tree](#Tree) (New)
+    [] Binary tree
+    [] Red-Black Tree
+    [] B-Tree
 
 # :dart: Data Type Expected Operations (and kinda how it works)
 
@@ -20,20 +21,20 @@ developed in C containing all the important Abstract Data Types and its operatio
 
 Operations:
 
-- get() – Return an element from the list at any given position.
-- push() – Insert an element at any position of the list.
-- remove() – Remove the first occurrence of any element from a non-empty list.
-- removeAt() – Remove the element at a specified location from a non-empty list.
-- replace() – Replace an element at any position by another element.
-- size() – Return the number of elements in the list.
-- empty() – Return true if the list is empty, otherwise return false.
+[X] get() – Return an element from the list at any given position.
+[X] push() – Insert an element at any position of the list.
+[X] remove() – Remove the first occurrence of any element from a non-empty list.
+[X] removeAt() – Remove the element at a specified location from a non-empty list.
+[X] replace() – Replace an element at any position by another element.
+[X] size() – Return the number of elements in the list.
+[X] empty() – Return true if the list is empty, otherwise return false.
 
 ## Stack
 
 Operations:
 
-- push() – Insert an element at one end of the stack called top.
-- pop() – Remove and return the element at the top of the stack, if it is not empty.
+[X] push() – Insert an element at one end of the stack called top.
+[X] pop() – Remove and return the element at the top of the stack, if it is not empty.
 - peek() – Return the element at the top of the stack without removing it, if the stack is- not empty.
 - size() – Return the number of elements in the stack.
 - empty() – Return true if the stack is empty, otherwise return false.
@@ -68,6 +69,12 @@ Operations:
     - smallest;
 - delete_tree();
 - show_leaf();
+
+### B-Tree
+
+[] Traversal - inOrder();
+[] insert
+    [] SplitChild();
 
 ## To put some challenge:
 
