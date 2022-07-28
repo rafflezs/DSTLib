@@ -7,8 +7,8 @@ developed in C containing all the important Abstract Data Types and its operatio
     - [X] Simply linked
     - [X] Doubly linked
     - [X] Circular
-- [ ] [Stack](#Stack)
-- [ ] [Queue](#Queue)
+- [X] [Stack](#Stack)
+- [X] [Queue](#Queue)
     - [ ] Priority Queue
 - [ ] [Tree](#Tree) (New)
     - [ ] Binary tree
